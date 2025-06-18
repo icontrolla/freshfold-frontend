@@ -7,6 +7,10 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 2rem;
   font-family: 'Inter', sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -16,12 +20,24 @@ const Title = styled.h2`
   background: linear-gradient(90deg, #00ffab, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const ServiceList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
+
+  @media (max-width: 480px) {
+    gap: 1.25rem;
+  }
 `;
 
 const ServiceCard = styled.div`
@@ -29,6 +45,7 @@ const ServiceCard = styled.div`
   padding: 2rem;
   border-radius: 16px;
   transition: transform 0.3s ease;
+  text-align: center;
 
   &:hover {
     transform: translateY(-6px);
@@ -37,10 +54,20 @@ const ServiceCard = styled.div`
   h3 {
     margin-bottom: 1rem;
     color: #00ffab;
+    font-size: 1.3rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+    }
   }
 
   p {
     color: #ccc;
+    font-size: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+    }
   }
 `;
 

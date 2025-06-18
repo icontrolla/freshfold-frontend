@@ -8,6 +8,10 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 2rem;
   font-family: 'Inter', sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -17,13 +21,25 @@ const Title = styled.h2`
   background: linear-gradient(90deg, #00ffab, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const PlanList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
+  gap: 2rem;
+
+  @media (max-width: 480px) {
+    gap: 1.25rem;
+  }
 `;
 
 const PlanCard = styled.div`
@@ -41,19 +57,34 @@ const PlanCard = styled.div`
   h3 {
     color: #00ffab;
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
   }
 
   h4 {
     margin-bottom: 1rem;
     color: #ffffff;
+    font-size: 1.2rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+    }
   }
 
   p {
     color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
 
   button {
-    margin-top: 1rem;
     background: #00ffab;
     color: #000;
     border: none;
@@ -61,9 +92,16 @@ const PlanCard = styled.div`
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease;
 
     &:hover {
       background: #00e6a6;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
     }
   }
 `;
@@ -79,7 +117,7 @@ const pricingPlans = [
       "After a thorough packing of the customer's laundry, it is carefully weighed on a scale. The bill is projected at 3.00 USD per kg, with all service financials included, mostly covering transport services.",
   },
   {
-    id: "basic",
+    id: "premium",
     title: "Premium Plan",
     price: "5.00 USD/kg",
     description:
@@ -99,7 +137,7 @@ const handleCheckout = async (planId) => {
 
     const data = await response.json();
 
-    if (data.url) {
+    if (data.session_id) {
       stripe.redirectToCheckout({ sessionId: data.session_id });
     } else {
       alert('Failed to create checkout session.');
