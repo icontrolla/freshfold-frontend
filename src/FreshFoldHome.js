@@ -14,6 +14,10 @@ const Container = styled.div`
   color: #f0f0f0;
   min-height: 100vh;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Header = styled.header`
@@ -22,6 +26,11 @@ const Header = styled.header`
   align-items: center;
   margin-bottom: 4rem;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const Logo = styled.h1`
@@ -31,11 +40,16 @@ const Logo = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 
   a {
     color: #bbb;
@@ -63,12 +77,22 @@ const Nav = styled.nav`
       width: 100%;
     }
   }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
 `;
 
 const Hero = styled.section`
   text-align: center;
   padding: 5rem 2rem;
   animation: ${fadeInUp} 1s ease forwards;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const HeroTitle = styled.h2`
@@ -78,6 +102,10 @@ const HeroTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const HeroSubtitle = styled.p`
@@ -85,6 +113,10 @@ const HeroSubtitle = styled.p`
   color: #aaa;
   max-width: 600px;
   margin: 0 auto 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const CTAButton = styled(Link)`
@@ -100,10 +132,19 @@ const CTAButton = styled(Link)`
   &:hover {
     background-color: #33ffc4;
   }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
 `;
 
 const Features = styled.section`
   padding: 4rem 0;
+
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+  }
 `;
 
 const SectionTitle = styled.h3`
@@ -111,6 +152,10 @@ const SectionTitle = styled.h3`
   color: #00ffab;
   text-align: center;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const FeatureGrid = styled.div`
@@ -145,6 +190,10 @@ const FeatureCard = styled.div`
   p {
     color: #bbb;
     font-size: 0.95rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -154,6 +203,11 @@ const Footer = styled.footer`
   color: #777;
   margin-top: 4rem;
   padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
 `;
 
 const FreshFoldHome = () => {
